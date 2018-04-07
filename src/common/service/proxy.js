@@ -64,6 +64,7 @@ export default class Proxy {
 
       if (request.isMappingActive) {
         const mappedUrl = this._urlMapper.get(fullUrl);
+        //console.log(mappedUrl);
         request.isLocal = mappedUrl.isLocal;
         request.newUrl = mappedUrl.newUrl;
 

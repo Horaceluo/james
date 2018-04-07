@@ -23,10 +23,23 @@ export default class UrlMapper {
   get(url) {
     url = UrlMapper.prepare(url);
 
-    const plainUrl = this._map[url];
-    if (plainUrl) {
-      return plainUrl;
+
+    for(let key in this._map) {
+      if (url.indexOf(key) !== -1) {
+        let matche = this._map[key];
+        url = url.replace(key, matche.newUrl);
+
+        return {
+          url: matche.url,
+          newUrl: url,
+          isLocal: matche.isLocal,
+          isActive: true,
+          _id: matche._id,
+        };
+      }
     }
+
+    return url;
 
     const wildcardList = Object.keys(this._wildcards).map((key) => this._wildcards[key]);
     const urlChunks = url.split('/');
