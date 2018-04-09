@@ -20,7 +20,7 @@ Download the correct version for your OS and run
 
 To use wildcards in the "url to map" field, put a "*" between two adjacent slashes. For example:
 ```
-http://foo.com/version/*/app.js -> http://localhost:8000/app.js
+http://foo.com -> http://localhost:8000
 ```
 Requests which will be redirected:
 * `http://foo.com/version/1/app.js`
